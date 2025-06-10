@@ -13,16 +13,38 @@ function Weather() {
       if (!apiKey) {
         throw new Error('API key is missing');
       }
-      
+
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}&lang=ru`;
-      console.log('Fetching URL:', url); // Для отладки
-      
+
       const res = await fetch(url);
-      
+
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
-      
+
+      const json = await res.json();
+      setData(json);
+    } catch (e) {
+      setError(`Ошибка при получении погоды: ${e.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getWeatherByCity = async (city = 'Москва') => {
+    try {
+      if (!apiKey) {
+        throw new Error('API key is missing');
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=ru`;
+
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
       const json = await res.json();
       setData(json);
     } catch (e) {
@@ -34,7 +56,7 @@ function Weather() {
 
   useEffect(() => {
     setLoading(true);
-    
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -43,11 +65,11 @@ function Weather() {
         },
         (err) => {
           console.warn('Геолокация не предоставлена, используем Москву');
-          getWeatherByCity();
+          getWeatherByCity();  // По умолчанию получаем погоду для Москвы
         }
       );
     } else {
-      getWeatherByCity();
+      getWeatherByCity();  // В случае если геолокация не поддерживается
     }
   }, []);
 
@@ -68,7 +90,7 @@ function Weather() {
       <p>Ветер: {data.wind.speed} м/с</p>
       <p>Облачность: {data.clouds.all}%</p>
     </div>
-  );  
+  );
 }
 
 export default Weather;
