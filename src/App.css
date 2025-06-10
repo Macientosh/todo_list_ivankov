@@ -119,38 +119,50 @@ button:hover {
   color: white;
 }
 
-/* Стили для погодного блока */
 .weather-container {
-  background-color: #ffeb3b;
+  background: linear-gradient(135deg, #e1f5fe, #6dd1ff);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #01579b;
+  font-family: Arial, sans-serif;
 }
 
+/* Стили информации о погоде */
 .weather-container h2 {
-  font-size: 22px;
-  color: #2c3e50;
+  margin-top: 0;
+  font-size: 20px;
+  color: #0277bd;
 }
 
 .weather-container p {
-  font-size: 18px;
-  color: #555;
+  margin: 5px 0;
+  font-size: 16px;
 }
 
-/* Стили для блока с курсами валют */
+.weather-container img {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+/* Контейнер курса валют */
 .currency-container {
-  background-color: #ffe0b2;
+  background: linear-gradient(135deg, #fff3e0, #fac575);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #bf360c;
+  font-family: Arial, sans-serif;
 }
 
 .currency-container h2 {
-  font-size: 22px;
-  color: #2c3e50;
+  margin-top: 0;
+  font-size: 20px;
+  color: #e65100;
 }
 
 .currency-container p {
-  font-size: 18px;
-  color: #555;
+  margin: 6px 0;
+  font-size: 16px;
 }
