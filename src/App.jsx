@@ -6,10 +6,17 @@ import './App.css';
 function App() {
   return (
     <div className="container">
-      <h1>Мой Dashboard</h1>
-      <Weather />
-      <CurrencyRates />
-      <TodoList />
+      <div className="todo-container">
+        <TodoList />
+      </div>
+      <div>
+        <div className="weather-container">
+          <Weather />
+        </div>
+        <div className="currency-container">
+          <CurrencyRates />
+        </div>
+      </div>
     </div>
   );
 }

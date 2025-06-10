@@ -1,14 +1,156 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; 
+  color: #333; 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
 .container {
-  max-width: 600px;
-  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
   padding: 20px;
-  font-family: sans-serif;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+/* Стили для To-Do списка */
+.todo-container {
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-width: 700px;    
+  width: 100%;          
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
 }
 
 input {
-  margin-right: 10px;
+  background-color: #89afce;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  width: 65%;
 }
 
 button {
-  margin-left: 5px;
+  padding: 15px 20px;
+  background-color: #89afce;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #42a5f5;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.task span {
+  word-break: break-word;
+  flex: 1;
+}
+
+.task.done {
+  background-color: #e0e0e0;
+}
+
+.task.done span {
+  text-decoration: line-through;
+  text-decoration-style: solid;
+  color: #666;
+}
+
+.task-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid #64b5f6;
+  color: #64b5f6;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #64b5f6;
+  color: white;
+}
+
+/* Стили для погодного блока */
+.weather-container {
+  background-color: #ffeb3b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container h2 {
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.weather-container p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Стили для блока с курсами валют */
+.currency-container {
+  background-color: #ffe0b2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.currency-container h2 {
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.currency-container p {
+  font-size: 18px;
+  color: #555;
 }

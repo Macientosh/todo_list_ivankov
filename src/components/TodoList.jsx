@@ -36,10 +36,12 @@ function TodoList() {
       <button onClick={addTask}>Добавить</button>
       <ul>
         {tasks.map((task, i) => (
-          <li key={i} style={{ textDecoration: task.done ? 'line-through' : 'none' }}>
-            {task.text}
-            <button onClick={() => toggleTask(i)}>✓</button>
-            <button onClick={() => deleteTask(i)}>✗</button>
+          <li key={i} className={task.done ? 'task done' : 'task'}>
+            <span>{task.text}</span>
+            <div className="task-buttons">
+              <button onClick={() => toggleTask(i)}>✅</button>
+              <button onClick={() => deleteTask(i)}>❌</button>
+            </div>
           </li>
         ))}
       </ul>
