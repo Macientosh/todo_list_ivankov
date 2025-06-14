@@ -23,22 +23,27 @@ const AirQualityWidget = () => {
     }
   };
 
-  useEffect(() => {
-    const defaultCityUrl = `https://api.waqi.info/feed/Moscow/?token=${apiKey}`;
-    fetchAQI(defaultCityUrl);
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          const geoUrl = `https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=${apiKey}`;
-          fetchAQI(geoUrl);
-        },
-        () => {
-          console.warn('Геолокация не разрешена, используем Москву');
-        }
-      );
+  const getLocationByIP = async () => {
+    try {
+      const response = await axios.get('http://ip-api.com/json/?fields=status,message,lat,lon,city');
+      if (response.data.status === 'success') {
+        const { lat, lon } = response.data;
+        return `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${apiKey}`;
+      }
+      throw new Error(response.data.message || 'Не удалось определить местоположение');
+    } catch (err) {
+      console.warn('Ошибка определения местоположения по IP:', err.message);
+      return `https://api.waqi.info/feed/Moscow/?token=${apiKey}`;
     }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = await getLocationByIP();
+      fetchAQI(url);
+    };
+
+    fetchData();
   }, [apiKey]);
 
   if (loading) return <div>Загрузка...</div>;
