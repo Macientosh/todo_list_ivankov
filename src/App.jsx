@@ -1,6 +1,6 @@
 import TodoList from './components/TodoList';
-import Weather from './components/Weather';
-import CurrencyRates from './components/CurrencyRates';
+import AirQualityWidget from './components/AirQualityWidget';
+import RandomWord from './components/RandomWord';
 import './App.css';
 
 function App() {
@@ -11,10 +11,10 @@ function App() {
       </div>
       <div>
         <div className="weather-container">
-          <Weather />
+          <AirQualityWidget />
         </div>
         <div className="currency-container">
-          <CurrencyRates />
+          <RandomWord />
         </div>
       </div>
     </div>
