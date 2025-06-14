@@ -51,7 +51,7 @@ const AirQualityWidget = () => {
   if (!aqiData) return <div>Нет данных</div>;
 
   return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '10px' }}>
+    <div>
       <h3>Качество воздуха в {aqiData.city.name}</h3>
       <p>AQI: {aqiData.aqi}</p>
       <p>PM2.5: {aqiData.iaqi.pm25?.v ?? 'Нет данных'}</p>

@@ -1,168 +1,203 @@
-
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7; 
-  color: #333; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
-
 
 .container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 30px;
+  gap: 25px;
   max-width: 1200px;
   width: 100%;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
+/* Общие стили для всех блоков */
+.todo-container,
+.weather-container,
+.currency-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-container:hover,
+.weather-container:hover,
+.currency-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+.todo-container h2,
+.weather-container h3,
+.currency-container h1 {
+  color: #2d3748;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
 
 /* Стили для To-Do списка */
-.todo-container {
-  background-color: #e0f7fa;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 700px;    
-  width: 100%;          
-  box-sizing: border-box;
+
+.todo-container input {
+  width: 80%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
 }
 
-h2 {
-  font-size: 24px;
-  color: #2c3e50;
-  margin-bottom: 10px;
+.todo-container input:focus {
+  outline: none;
+  border-color: #4299e1;
 }
 
-input {
-  background-color: #89afce;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  margin-right: 30px;
-  width: 65%;
-}
-
-button {
-  padding: 15px 20px;
-  background-color: #89afce;
+.todo-container button {
+  padding: 10px 16px;
+  background-color: #4299e1;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #42a5f5;
+.todo-container button:hover {
+  background-color: #3182ce;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.todo-container ul {
+  margin-top: 20px;
+  padding-left: 0;
 }
 
 .task {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  flex-wrap: nowrap;
-  gap: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-.task span {
-  word-break: break-word;
-  flex: 1;
+.task:hover {
+  background-color: #edf2f7;
 }
 
 .task.done {
-  background-color: #e0e0e0;
+  background-color: #ebf8ff;
+}
+
+.task span {
+  color: #2d3748;
+  flex-grow: 1;
+  margin: 0 10px;
+  word-break: break-word;
 }
 
 .task.done span {
   text-decoration: line-through;
-  text-decoration-style: solid;
-  color: #666;
+  color: #718096;
 }
 
-.task-buttons {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-}
-
-button {
-  padding: 5px;
+.task-buttons button {
+  padding: 6px;
   background-color: transparent;
-  border: 1px solid #64b5f6;
-  color: #64b5f6;
+  border: none;
+  color: #718096;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-button:hover {
-  background-color: #64b5f6;
-  color: white;
+.task-buttons button:hover {
+  color: #4299e1;
+  background-color: transparent;
 }
 
+/* Стили для виджета качества воздуха */
 .weather-container {
-  background: linear-gradient(135deg, #e1f5fe, #6dd1ff);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: #01579b;
-  font-family: Arial, sans-serif;
-}
-
-/* Стили информации о погоде */
-.weather-container h2 {
-  margin-top: 0;
-  font-size: 20px;
-  color: #0277bd;
+  margin-bottom: 10px; /* Добавлен отступ между блоками */
 }
 
 .weather-container p {
-  margin: 5px 0;
-  font-size: 16px;
+  margin: 8px 0;
+  color: #4a5568;
+  font-size: 14px;
 }
 
-.weather-container img {
-  vertical-align: middle;
-  margin-left: 10px;
+.weather-container small {
+  color: #a0aec0;
+  font-size: 12px;
+  display: block;
+  margin-top: 10px;
 }
 
-/* Контейнер курса валют */
-.currency-container {
-  background: linear-gradient(135deg, #fff3e0, #fac575);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: #bf360c;
-  font-family: Arial, sans-serif;
-}
-
+/* Стили для словаря */
 .currency-container h2 {
-  margin-top: 0;
-  font-size: 20px;
-  color: #e65100;
+  color: #2b313d;
 }
 
 .currency-container p {
-  margin: 6px 0;
-  font-size: 16px;
+  margin: 8px 0;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.currency-container ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.currency-container li {
+  margin-bottom: 6px;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.currency-container button {
+  padding: 8px 16px;
+  background-color: #48bb78;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.currency-container button:hover {
+  background-color: #38a169;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .todo-container {
+    grid-row: span 1;
+  }
+  
+  .weather-container {
+    margin-bottom: 20px;
+  }
 }

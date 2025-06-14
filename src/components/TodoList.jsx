@@ -32,8 +32,8 @@ function TodoList() {
   return (
     <div>
       <h2>To-Do List</h2>
-      <input value={newTask} onChange={e => setNewTask(e.target.value)} placeholder="Новая задача" />
-      <button onClick={addTask}>Добавить</button>
+        <input value={newTask} onChange={e => setNewTask(e.target.value)} placeholder="Новая задача" />
+        <button onClick={addTask}>Добавить</button>
       <ul>
         {tasks.map((task, i) => (
           <li key={i} className={task.done ? 'task done' : 'task'}>
