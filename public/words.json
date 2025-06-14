@@ -1,0 +1,21 @@
+[
+    "apple", "dog", "cat", "house", "car", "book", "school", "sun", "moon", "tree",
+    "chair", "table", "milk", "water", "food", "run", "walk", "jump", "sleep", "play",
+    "read", "write", "open", "close", "happy", "sad", "big", "small", "hot", "cold",
+    "blue", "red", "green", "yellow", "black", "white", "day", "night", "light", "dark",
+    "boy", "girl", "man", "woman", "baby", "friend", "family", "mother", "father", "brother",
+    "sister", "teacher", "student", "class", "pen", "pencil", "paper", "notebook", "bag", "door",
+    "window", "clock", "phone", "computer", "mouse", "keyboard", "head", "hand", "leg", "foot",
+    "face", "eye", "ear", "nose", "mouth", "hair", "shirt", "pants", "shoes", "hat",
+    "rain", "snow", "wind", "cloud", "sky", "star", "fish", "bird", "cow", "horse",
+    "sheep", "duck", "frog", "lion", "tiger", "bear", "zebra", "monkey", "elephant", "kangaroo",
+    "ball", "game", "toy", "music", "song", "dance", "picture", "color", "number", "letter",
+    "name", "word", "sentence", "story", "picture", "movie", "park", "zoo", "beach", "mountain",
+    "river", "lake", "tree", "flower", "grass", "leaf", "fruit", "banana", "orange", "grape",
+    "bread", "cheese", "egg", "meat", "rice", "soup", "cake", "cookie", "ice", "juice",
+    "yes", "no", "hello", "goodbye", "please", "thank", "sorry", "help", "stop", "go",
+    "fast", "slow", "early", "late", "clean", "dirty", "easy", "hard", "new", "old",
+    "right", "left", "up", "down", "in", "out", "on", "off", "under", "over",
+    "before", "after", "again", "always", "never", "sometimes", "every", "first", "last", "next"
+]
+  
