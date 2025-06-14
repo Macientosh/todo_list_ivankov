@@ -1,6 +1,6 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
   margin: 0;
   padding: 20px;
   min-height: 100vh;
@@ -12,28 +12,53 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 25px;
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
-  padding: 20px;
+  padding: 0;
 }
 
 /* Общие стили для всех блоков */
 .todo-container,
 .weather-container,
 .currency-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  position: relative;
 }
 
 .todo-container:hover,
 .weather-container:hover,
 .currency-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Декоративные элементы */
+.todo-container::before,
+.weather-container::before,
+.currency-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.todo-container::before {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.weather-container::before {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.currency-container::before {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
 }
 
 /* Заголовки */
@@ -41,48 +66,80 @@ body {
 .weather-container h3,
 .currency-container h1 {
   color: #2d3748;
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.todo-container h2::after,
+.weather-container h3::after,
+.currency-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.todo-container h2::after {
+  background: #667eea;
+}
+
+.weather-container h3::after {
+  background: #4facfe;
+}
+
+.currency-container h1::after {
+  background: #43e97b;
 }
 
 /* Стили для To-Do списка */
+.todo-container {
+  background: white;
+}
 
 .todo-container input {
-  width: 80%;
-  padding: 10px 12px;
+  width: 75%;
+  padding: 12px 16px;
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-right: 10px;
-  font-size: 14px;
-  transition: border-color 0.2s ease;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  color: #2d3748;
 }
 
 .todo-container input:focus {
   outline: none;
-  border-color: #4299e1;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .todo-container button {
-  padding: 10px 16px;
-  background-color: #4299e1;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .todo-container button:hover {
-  background-color: #3182ce;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .todo-container ul {
-  margin-top: 20px;
+  margin-top: 25px;
   padding-left: 0;
 }
 
@@ -90,26 +147,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
-  margin-bottom: 8px;
-  background-color: #f8fafc;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #edf2f7;
 }
 
 .task:hover {
-  background-color: #edf2f7;
+  border-color: #c3dafe;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
 }
 
 .task.done {
-  background-color: #ebf8ff;
+  background-color: #5c5c5c5b;
 }
 
 .task span {
   color: #2d3748;
   flex-grow: 1;
-  margin: 0 10px;
+  margin: 0 15px;
   word-break: break-word;
+  font-size: 18px;
 }
 
 .task.done span {
@@ -118,79 +178,113 @@ body {
 }
 
 .task-buttons button {
-  padding: 6px;
+  padding: 8px;
   background-color: transparent;
   border: none;
-  color: #718096;
+  color: #a0aec0;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 50%;
 }
 
 .task-buttons button:hover {
-  color: #4299e1;
-  background-color: transparent;
+  color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
 }
 
 /* Стили для виджета качества воздуха */
 .weather-container {
-  margin-bottom: 10px; /* Добавлен отступ между блоками */
+  background: white;
+  margin-bottom: 15px;
 }
 
 .weather-container p {
-  margin: 8px 0;
+  margin: 12px 0;
   color: #4a5568;
-  font-size: 14px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.weather-container p::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #4facfe;
 }
 
 .weather-container small {
   color: #a0aec0;
-  font-size: 12px;
+  font-size: 13px;
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
+  text-align: right;
 }
 
 /* Стили для словаря */
+.currency-container {
+  background: white;
+}
+
 .currency-container h2 {
   color: #2b313d;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
 .currency-container p {
-  margin: 8px 0;
+  margin: 12px 0;
   color: #4a5568;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .currency-container ul {
-  margin: 10px 0;
-  padding-left: 20px;
+  margin: 15px 0;
+  padding-left: 25px;
 }
 
 .currency-container li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: #4a5568;
-  font-size: 14px;
+  font-size: 15px;
+  position: relative;
+}
+
+.currency-container li::before {
+  content: '•';
+  color: #43e97b;
+  font-size: 20px;
+  position: absolute;
+  left: -18px;
+  top: -2px;
 }
 
 .currency-container button {
-  padding: 8px 16px;
-  background-color: #48bb78;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-  transition: background-color 0.2s ease;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 15px;
+  transition: all 0.3s ease;
 }
 
 .currency-container button:hover {
-  background-color: #38a169;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 233, 123, 0.3);
 }
 
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
+    padding: 20px;
   }
   
   .todo-container {
@@ -199,5 +293,9 @@ body {
   
   .weather-container {
     margin-bottom: 20px;
+  }
+  
+  .todo-container input {
+    width: 70%;
   }
 }
