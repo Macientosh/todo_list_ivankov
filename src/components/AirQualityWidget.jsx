@@ -25,7 +25,7 @@ const AirQualityWidget = () => {
 
   const getLocationByIP = async () => {
     try {
-      const response = await axios.get('http://ip-api.com/json/?fields=status,message,lat,lon,city');
+      const response = await axios.get('https://ip-api.com/json/?fields=status,message,lat,lon,city');
       if (response.data.status === 'success') {
         const { lat, lon } = response.data;
         return `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${apiKey}`;
