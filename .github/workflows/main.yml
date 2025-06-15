@@ -19,10 +19,10 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd ${{ secrets.DOCKER_COMPOSE_DIR }} && 
-            git pull origin main && 
-            docker compose down && 
-            docker compose pull && 
-            docker compose up -d --remove-orphans
-          "
+          ssh -o StrictHostKeyChecking=no \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "cd ${{ secrets.DOCKER_COMPOSE_DIR }} && \
+            git pull origin main && \
+            docker compose down && \
+            docker compose pull && \
+            docker compose up -d --remove-orphans"
