@@ -20,7 +20,7 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh -o StrictHostKeyChecking=no \
-            -p "${{ vars.SSH_PORT }} \
+            "-p ${{ vars.SSH_PORT }}" \
             "${{ vars.SSH_USER }}@${{ vars.SSH_HOST }}" \
             "cd ${{ vars.DOCKER_COMPOSE_DIR }} && \
             git pull origin main && \
