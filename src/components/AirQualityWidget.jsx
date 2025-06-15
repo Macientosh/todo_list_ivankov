@@ -25,18 +25,22 @@ const AirQualityWidget = () => {
 
   const getLocationByIP = async () => {
     try {
-      const response = await axios.get('https://ip-api.com/json/?fields=status,message,lat,lon,city');
-      if (response.data.status === 'success') {
-        const { lat, lon } = response.data;
+      const ipResponse = await axios.get('https://api.ipify.org?format=json');
+      const { ip } = ipResponse.data;
+
+      const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
+      const { latitude: lat, longitude: lon, city } = geoResponse.data;
+
+      if (lat && lon) {
         return `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${apiKey}`;
       }
-      throw new Error(response.data.message || 'Не удалось определить местоположение');
+      throw new Error('Не удалось определить координаты');
     } catch (err) {
-      console.warn('Ошибка определения местоположения по IP:', err.message);
+      console.warn('Ошибка определения местоположения:', err.message);
+
       return `https://api.waqi.info/feed/Moscow/?token=${apiKey}`;
     }
   };
-
   useEffect(() => {
     const fetchData = async () => {
       const url = await getLocationByIP();
