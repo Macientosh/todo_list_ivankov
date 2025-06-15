@@ -28,8 +28,8 @@ const AirQualityWidget = () => {
       const ipResponse = await axios.get('https://api.ipify.org?format=json');
       const { ip } = ipResponse.data;
 
-      const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
-      const { latitude: lat, longitude: lon, city } = geoResponse.data;
+      const geoResponse = await axios.get('https://get.geojs.io/v1/ip/geo.json');
+      const { latitude: lat, longitude: lon } = geoResponse.data;
 
       if (lat && lon) {
         return `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${apiKey}`;
